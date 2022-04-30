@@ -3,13 +3,12 @@
         "es2021": true,
         "node": true
     },
-    "extends": [
-        "airbnb-base"
-    ],
+    "extends": ["airbnb-base"],
     "parserOptions": {
         "ecmaVersion": 2020
     },
     "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "indent": ["error", 4]
     }
 }
