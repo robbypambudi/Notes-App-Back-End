@@ -1,8 +1,8 @@
-const { nanoid } = require("nanoid");
-const { Pool } = require("pg");
-const InvariantError = require("../../exceptions/InvariantError");
-const NotFoundError = require("../../exceptions/NotFoundError");
-const { mapDBToModel } = require("../../utils");
+const { nanoid } = require('nanoid');
+const { Pool } = require('pg');
+const InvariantError = require('../../exceptions/InvariantError');
+const NotFoundError = require('../../exceptions/NotFoundError');
+const { mapDBToModel } = require('../../utils');
 
 class NotesService {
     constructor() {
@@ -23,14 +23,14 @@ class NotesService {
         const result = await this._pool.query(query);
 
         if (!result.rows[0].id) {
-            throw new InvariantError("Catatan gagal ditambahkan");
+            throw new InvariantError('Catatan gagal ditambahkan');
         }
 
         return result.rows[0].id;
     }
 
     async getNotes() {
-        const result = await this._pool.query("SELECT * FROM notes");
+        const result = await this._pool.query('SELECT * FROM notes');
         return result.rows.map(mapDBToModel);
     }
 
@@ -42,7 +42,7 @@ class NotesService {
         const result = await this._pool.query(query);
 
         if (!result.rows.length) {
-            throw new NotFoundError("Catatan tidak ditemukan");
+            throw new NotFoundError('Catatan tidak ditemukan');
         }
         return result.rows.map(mapDBToModel)[0];
     }
@@ -56,7 +56,7 @@ class NotesService {
         const result = await this._pool.query(query);
 
         if (!result.rows.length) {
-            throw new NotFoundError("Gagal memperbarui catatan. Id tidak ditemukan");
+            throw new NotFoundError('Gagal memperbarui catatan. Id tidak ditemukan');
         }
         // return result.rows[0].id;
     }
@@ -68,7 +68,7 @@ class NotesService {
         const result = await this._pool.query(query);
 
         if (!result.rows.length) {
-            throw new NotFoundError("Gagal menghapus catatan. Id tidak ditemukan");
+            throw new NotFoundError('Gagal menghapus catatan. Id tidak ditemukan');
         }
     }
 }

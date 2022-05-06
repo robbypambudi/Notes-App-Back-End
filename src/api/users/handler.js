@@ -1,3 +1,5 @@
+/* eslint no-underscore-dangle: 0 */
+
 const InvariantError = require('../../exceptions/InvariantError');
 const NotFoundError = require('../../exceptions/NotFoundError');
 
